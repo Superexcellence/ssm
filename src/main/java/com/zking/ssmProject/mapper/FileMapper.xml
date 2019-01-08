@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.FileMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.File" >
+    <constructor >
+      <arg column="fileid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="filename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filenamen" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filenamet" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filenames" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.File" >
+    insert into x_file (fileid, filename, filenamen, 
+      filenamet, filenames)
+    values (#{fileid,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{filenamen,jdbcType=VARCHAR}, 
+      #{filenamet,jdbcType=VARCHAR}, #{filenames,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.File" >
+    insert into x_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fileid != null" >
+        fileid,
+      </if>
+      <if test="filename != null" >
+        filename,
+      </if>
+      <if test="filenamen != null" >
+        filenamen,
+      </if>
+      <if test="filenamet != null" >
+        filenamet,
+      </if>
+      <if test="filenames != null" >
+        filenames,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fileid != null" >
+        #{fileid,jdbcType=INTEGER},
+      </if>
+      <if test="filename != null" >
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filenamen != null" >
+        #{filenamen,jdbcType=VARCHAR},
+      </if>
+      <if test="filenamet != null" >
+        #{filenamet,jdbcType=VARCHAR},
+      </if>
+      <if test="filenames != null" >
+        #{filenames,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

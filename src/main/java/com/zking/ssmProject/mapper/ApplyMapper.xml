@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.ApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Apply" >
+    <constructor >
+      <idArg column="appid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="meeid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="appdate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    appid, userid, meeid, appdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_apply
+    where appid = #{appid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_apply
+    where appid = #{appid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Apply" >
+    insert into x_apply (appid, userid, meeid, 
+      appdate)
+    values (#{appid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{meeid,jdbcType=VARCHAR}, 
+      #{appdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Apply" >
+    insert into x_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        appid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="meeid != null" >
+        meeid,
+      </if>
+      <if test="appdate != null" >
+        appdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="meeid != null" >
+        #{meeid,jdbcType=VARCHAR},
+      </if>
+      <if test="appdate != null" >
+        #{appdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Apply" >
+    update x_apply
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="meeid != null" >
+        meeid = #{meeid,jdbcType=VARCHAR},
+      </if>
+      <if test="appdate != null" >
+        appdate = #{appdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where appid = #{appid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Apply" >
+    update x_apply
+    set userid = #{userid,jdbcType=INTEGER},
+      meeid = #{meeid,jdbcType=VARCHAR},
+      appdate = #{appdate,jdbcType=TIMESTAMP}
+    where appid = #{appid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.DictMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Dict" >
+    <constructor >
+      <arg column="dicid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dicname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dictype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dicvalue" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Dict" >
+    insert into x_dict (dicid, dicname, dictype, 
+      dicvalue)
+    values (#{dicid,jdbcType=VARCHAR}, #{dicname,jdbcType=VARCHAR}, #{dictype,jdbcType=VARCHAR}, 
+      #{dicvalue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Dict" >
+    insert into x_dict
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dicid != null" >
+        dicid,
+      </if>
+      <if test="dicname != null" >
+        dicname,
+      </if>
+      <if test="dictype != null" >
+        dictype,
+      </if>
+      <if test="dicvalue != null" >
+        dicvalue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dicid != null" >
+        #{dicid,jdbcType=VARCHAR},
+      </if>
+      <if test="dicname != null" >
+        #{dicname,jdbcType=VARCHAR},
+      </if>
+      <if test="dictype != null" >
+        #{dictype,jdbcType=VARCHAR},
+      </if>
+      <if test="dicvalue != null" >
+        #{dicvalue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

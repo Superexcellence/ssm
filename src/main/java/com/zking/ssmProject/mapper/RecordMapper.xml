@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Record" >
+    <constructor >
+      <idArg column="recid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="recbt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="rechy" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="recsj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="recdf" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="recpm" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recid, recbt, rechy, recsj, recdf, recpm
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_record
+    where recid = #{recid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from x_record
+    where recid = #{recid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Record" >
+    insert into x_record (recid, recbt, rechy, 
+      recsj, recdf, recpm)
+    values (#{recid,jdbcType=VARCHAR}, #{recbt,jdbcType=VARCHAR}, #{rechy,jdbcType=VARCHAR}, 
+      #{recsj,jdbcType=TIMESTAMP}, #{recdf,jdbcType=REAL}, #{recpm,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Record" >
+    insert into x_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recid != null" >
+        recid,
+      </if>
+      <if test="recbt != null" >
+        recbt,
+      </if>
+      <if test="rechy != null" >
+        rechy,
+      </if>
+      <if test="recsj != null" >
+        recsj,
+      </if>
+      <if test="recdf != null" >
+        recdf,
+      </if>
+      <if test="recpm != null" >
+        recpm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recid != null" >
+        #{recid,jdbcType=VARCHAR},
+      </if>
+      <if test="recbt != null" >
+        #{recbt,jdbcType=VARCHAR},
+      </if>
+      <if test="rechy != null" >
+        #{rechy,jdbcType=VARCHAR},
+      </if>
+      <if test="recsj != null" >
+        #{recsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recdf != null" >
+        #{recdf,jdbcType=REAL},
+      </if>
+      <if test="recpm != null" >
+        #{recpm,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Record" >
+    update x_record
+    <set >
+      <if test="recbt != null" >
+        recbt = #{recbt,jdbcType=VARCHAR},
+      </if>
+      <if test="rechy != null" >
+        rechy = #{rechy,jdbcType=VARCHAR},
+      </if>
+      <if test="recsj != null" >
+        recsj = #{recsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recdf != null" >
+        recdf = #{recdf,jdbcType=REAL},
+      </if>
+      <if test="recpm != null" >
+        recpm = #{recpm,jdbcType=INTEGER},
+      </if>
+    </set>
+    where recid = #{recid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Record" >
+    update x_record
+    set recbt = #{recbt,jdbcType=VARCHAR},
+      rechy = #{rechy,jdbcType=VARCHAR},
+      recsj = #{recsj,jdbcType=TIMESTAMP},
+      recdf = #{recdf,jdbcType=REAL},
+      recpm = #{recpm,jdbcType=INTEGER}
+    where recid = #{recid,jdbcType=VARCHAR}
+  </update>
+</mapper>

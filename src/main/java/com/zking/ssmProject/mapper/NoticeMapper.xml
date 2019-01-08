@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Notice" >
+    <constructor >
+      <idArg column="notid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="notbt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="nottype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="notren" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="notdate" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    notid, notbt, nottype, notren, notdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_notice
+    where notid = #{notid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from x_notice
+    where notid = #{notid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Notice" >
+    insert into x_notice (notid, notbt, nottype, 
+      notren, notdate)
+    values (#{notid,jdbcType=VARCHAR}, #{notbt,jdbcType=VARCHAR}, #{nottype,jdbcType=VARCHAR}, 
+      #{notren,jdbcType=VARCHAR}, #{notdate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Notice" >
+    insert into x_notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="notid != null" >
+        notid,
+      </if>
+      <if test="notbt != null" >
+        notbt,
+      </if>
+      <if test="nottype != null" >
+        nottype,
+      </if>
+      <if test="notren != null" >
+        notren,
+      </if>
+      <if test="notdate != null" >
+        notdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="notid != null" >
+        #{notid,jdbcType=VARCHAR},
+      </if>
+      <if test="notbt != null" >
+        #{notbt,jdbcType=VARCHAR},
+      </if>
+      <if test="nottype != null" >
+        #{nottype,jdbcType=VARCHAR},
+      </if>
+      <if test="notren != null" >
+        #{notren,jdbcType=VARCHAR},
+      </if>
+      <if test="notdate != null" >
+        #{notdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Notice" >
+    update x_notice
+    <set >
+      <if test="notbt != null" >
+        notbt = #{notbt,jdbcType=VARCHAR},
+      </if>
+      <if test="nottype != null" >
+        nottype = #{nottype,jdbcType=VARCHAR},
+      </if>
+      <if test="notren != null" >
+        notren = #{notren,jdbcType=VARCHAR},
+      </if>
+      <if test="notdate != null" >
+        notdate = #{notdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where notid = #{notid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Notice" >
+    update x_notice
+    set notbt = #{notbt,jdbcType=VARCHAR},
+      nottype = #{nottype,jdbcType=VARCHAR},
+      notren = #{notren,jdbcType=VARCHAR},
+      notdate = #{notdate,jdbcType=VARCHAR}
+    where notid = #{notid,jdbcType=VARCHAR}
+  </update>
+</mapper>

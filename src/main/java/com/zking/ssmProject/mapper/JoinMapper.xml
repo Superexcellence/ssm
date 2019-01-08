@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.JoinMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Join" >
+    <constructor >
+      <arg column="joinid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="joinname" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Join" >
+    insert into x_join (joinid, joinname)
+    values (#{joinid,jdbcType=VARCHAR}, #{joinname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Join" >
+    insert into x_join
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="joinid != null" >
+        joinid,
+      </if>
+      <if test="joinname != null" >
+        joinname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="joinid != null" >
+        #{joinid,jdbcType=VARCHAR},
+      </if>
+      <if test="joinname != null" >
+        #{joinname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

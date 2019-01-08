@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.ProposalMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Proposal" >
+    <constructor >
+      <idArg column="proid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="protype" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="proany" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="protar" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="promc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prodp" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prowyzh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="protel" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prodwjzw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="proemail" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="protxdz" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="protanr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prodate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="fileid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="proxgqk" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="procbdw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prolxrxm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prolxrdw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="prolxrdh" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="joinid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="protps" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="propj" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    proid, protype, proany, protar, promc, prodp, prowyzh, protel, prodwjzw, proemail, 
+    protxdz, protanr, prodate, fileid, proxgqk, procbdw, prolxrxm, prolxrdw, prolxrdh, 
+    joinid, protps, propj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_proposal
+    where proid = #{proid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_proposal
+    where proid = #{proid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Proposal" >
+    insert into x_proposal (proid, protype, proany, 
+      protar, promc, prodp, 
+      prowyzh, protel, prodwjzw, 
+      proemail, protxdz, protanr, 
+      prodate, fileid, proxgqk, 
+      procbdw, prolxrxm, prolxrdw, 
+      prolxrdh, joinid, protps, 
+      propj)
+    values (#{proid,jdbcType=INTEGER}, #{protype,jdbcType=VARCHAR}, #{proany,jdbcType=VARCHAR}, 
+      #{protar,jdbcType=VARCHAR}, #{promc,jdbcType=VARCHAR}, #{prodp,jdbcType=VARCHAR}, 
+      #{prowyzh,jdbcType=VARCHAR}, #{protel,jdbcType=VARCHAR}, #{prodwjzw,jdbcType=VARCHAR}, 
+      #{proemail,jdbcType=VARCHAR}, #{protxdz,jdbcType=VARCHAR}, #{protanr,jdbcType=VARCHAR}, 
+      #{prodate,jdbcType=TIMESTAMP}, #{fileid,jdbcType=VARCHAR}, #{proxgqk,jdbcType=VARCHAR}, 
+      #{procbdw,jdbcType=VARCHAR}, #{prolxrxm,jdbcType=VARCHAR}, #{prolxrdw,jdbcType=VARCHAR}, 
+      #{prolxrdh,jdbcType=VARCHAR}, #{joinid,jdbcType=VARCHAR}, #{protps,jdbcType=INTEGER}, 
+      #{propj,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Proposal" >
+    insert into x_proposal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="proid != null" >
+        proid,
+      </if>
+      <if test="protype != null" >
+        protype,
+      </if>
+      <if test="proany != null" >
+        proany,
+      </if>
+      <if test="protar != null" >
+        protar,
+      </if>
+      <if test="promc != null" >
+        promc,
+      </if>
+      <if test="prodp != null" >
+        prodp,
+      </if>
+      <if test="prowyzh != null" >
+        prowyzh,
+      </if>
+      <if test="protel != null" >
+        protel,
+      </if>
+      <if test="prodwjzw != null" >
+        prodwjzw,
+      </if>
+      <if test="proemail != null" >
+        proemail,
+      </if>
+      <if test="protxdz != null" >
+        protxdz,
+      </if>
+      <if test="protanr != null" >
+        protanr,
+      </if>
+      <if test="prodate != null" >
+        prodate,
+      </if>
+      <if test="fileid != null" >
+        fileid,
+      </if>
+      <if test="proxgqk != null" >
+        proxgqk,
+      </if>
+      <if test="procbdw != null" >
+        procbdw,
+      </if>
+      <if test="prolxrxm != null" >
+        prolxrxm,
+      </if>
+      <if test="prolxrdw != null" >
+        prolxrdw,
+      </if>
+      <if test="prolxrdh != null" >
+        prolxrdh,
+      </if>
+      <if test="joinid != null" >
+        joinid,
+      </if>
+      <if test="protps != null" >
+        protps,
+      </if>
+      <if test="propj != null" >
+        propj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="proid != null" >
+        #{proid,jdbcType=INTEGER},
+      </if>
+      <if test="protype != null" >
+        #{protype,jdbcType=VARCHAR},
+      </if>
+      <if test="proany != null" >
+        #{proany,jdbcType=VARCHAR},
+      </if>
+      <if test="protar != null" >
+        #{protar,jdbcType=VARCHAR},
+      </if>
+      <if test="promc != null" >
+        #{promc,jdbcType=VARCHAR},
+      </if>
+      <if test="prodp != null" >
+        #{prodp,jdbcType=VARCHAR},
+      </if>
+      <if test="prowyzh != null" >
+        #{prowyzh,jdbcType=VARCHAR},
+      </if>
+      <if test="protel != null" >
+        #{protel,jdbcType=VARCHAR},
+      </if>
+      <if test="prodwjzw != null" >
+        #{prodwjzw,jdbcType=VARCHAR},
+      </if>
+      <if test="proemail != null" >
+        #{proemail,jdbcType=VARCHAR},
+      </if>
+      <if test="protxdz != null" >
+        #{protxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="protanr != null" >
+        #{protanr,jdbcType=VARCHAR},
+      </if>
+      <if test="prodate != null" >
+        #{prodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileid != null" >
+        #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="proxgqk != null" >
+        #{proxgqk,jdbcType=VARCHAR},
+      </if>
+      <if test="procbdw != null" >
+        #{procbdw,jdbcType=VARCHAR},
+      </if>
+      <if test="prolxrxm != null" >
+        #{prolxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="prolxrdw != null" >
+        #{prolxrdw,jdbcType=VARCHAR},
+      </if>
+      <if test="prolxrdh != null" >
+        #{prolxrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="joinid != null" >
+        #{joinid,jdbcType=VARCHAR},
+      </if>
+      <if test="protps != null" >
+        #{protps,jdbcType=INTEGER},
+      </if>
+      <if test="propj != null" >
+        #{propj,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Proposal" >
+    update x_proposal
+    <set >
+      <if test="protype != null" >
+        protype = #{protype,jdbcType=VARCHAR},
+      </if>
+      <if test="proany != null" >
+        proany = #{proany,jdbcType=VARCHAR},
+      </if>
+      <if test="protar != null" >
+        protar = #{protar,jdbcType=VARCHAR},
+      </if>
+      <if test="promc != null" >
+        promc = #{promc,jdbcType=VARCHAR},
+      </if>
+      <if test="prodp != null" >
+        prodp = #{prodp,jdbcType=VARCHAR},
+      </if>
+      <if test="prowyzh != null" >
+        prowyzh = #{prowyzh,jdbcType=VARCHAR},
+      </if>
+      <if test="protel != null" >
+        protel = #{protel,jdbcType=VARCHAR},
+      </if>
+      <if test="prodwjzw != null" >
+        prodwjzw = #{prodwjzw,jdbcType=VARCHAR},
+      </if>
+      <if test="proemail != null" >
+        proemail = #{proemail,jdbcType=VARCHAR},
+      </if>
+      <if test="protxdz != null" >
+        protxdz = #{protxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="protanr != null" >
+        protanr = #{protanr,jdbcType=VARCHAR},
+      </if>
+      <if test="prodate != null" >
+        prodate = #{prodate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fileid != null" >
+        fileid = #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="proxgqk != null" >
+        proxgqk = #{proxgqk,jdbcType=VARCHAR},
+      </if>
+      <if test="procbdw != null" >
+        procbdw = #{procbdw,jdbcType=VARCHAR},
+      </if>
+      <if test="prolxrxm != null" >
+        prolxrxm = #{prolxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="prolxrdw != null" >
+        prolxrdw = #{prolxrdw,jdbcType=VARCHAR},
+      </if>
+      <if test="prolxrdh != null" >
+        prolxrdh = #{prolxrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="joinid != null" >
+        joinid = #{joinid,jdbcType=VARCHAR},
+      </if>
+      <if test="protps != null" >
+        protps = #{protps,jdbcType=INTEGER},
+      </if>
+      <if test="propj != null" >
+        propj = #{propj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where proid = #{proid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Proposal" >
+    update x_proposal
+    set protype = #{protype,jdbcType=VARCHAR},
+      proany = #{proany,jdbcType=VARCHAR},
+      protar = #{protar,jdbcType=VARCHAR},
+      promc = #{promc,jdbcType=VARCHAR},
+      prodp = #{prodp,jdbcType=VARCHAR},
+      prowyzh = #{prowyzh,jdbcType=VARCHAR},
+      protel = #{protel,jdbcType=VARCHAR},
+      prodwjzw = #{prodwjzw,jdbcType=VARCHAR},
+      proemail = #{proemail,jdbcType=VARCHAR},
+      protxdz = #{protxdz,jdbcType=VARCHAR},
+      protanr = #{protanr,jdbcType=VARCHAR},
+      prodate = #{prodate,jdbcType=TIMESTAMP},
+      fileid = #{fileid,jdbcType=VARCHAR},
+      proxgqk = #{proxgqk,jdbcType=VARCHAR},
+      procbdw = #{procbdw,jdbcType=VARCHAR},
+      prolxrxm = #{prolxrxm,jdbcType=VARCHAR},
+      prolxrdw = #{prolxrdw,jdbcType=VARCHAR},
+      prolxrdh = #{prolxrdh,jdbcType=VARCHAR},
+      joinid = #{joinid,jdbcType=VARCHAR},
+      protps = #{protps,jdbcType=INTEGER},
+      propj = #{propj,jdbcType=VARCHAR}
+    where proid = #{proid,jdbcType=INTEGER}
+  </update>
+</mapper>

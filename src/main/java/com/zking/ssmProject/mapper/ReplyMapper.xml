@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.ReplyMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Reply" >
+    <constructor >
+      <idArg column="repid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="repname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="repdw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="repdate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="rephfbt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="repdworr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="repdates" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    repid, repname, repdw, repdate, rephfbt, repdworr, repdates
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_reply
+    where repid = #{repid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_reply
+    where repid = #{repid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Reply" >
+    insert into x_reply (repid, repname, repdw, 
+      repdate, rephfbt, repdworr, 
+      repdates)
+    values (#{repid,jdbcType=INTEGER}, #{repname,jdbcType=VARCHAR}, #{repdw,jdbcType=VARCHAR}, 
+      #{repdate,jdbcType=TIMESTAMP}, #{rephfbt,jdbcType=VARCHAR}, #{repdworr,jdbcType=VARCHAR}, 
+      #{repdates,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Reply" >
+    insert into x_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="repid != null" >
+        repid,
+      </if>
+      <if test="repname != null" >
+        repname,
+      </if>
+      <if test="repdw != null" >
+        repdw,
+      </if>
+      <if test="repdate != null" >
+        repdate,
+      </if>
+      <if test="rephfbt != null" >
+        rephfbt,
+      </if>
+      <if test="repdworr != null" >
+        repdworr,
+      </if>
+      <if test="repdates != null" >
+        repdates,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="repid != null" >
+        #{repid,jdbcType=INTEGER},
+      </if>
+      <if test="repname != null" >
+        #{repname,jdbcType=VARCHAR},
+      </if>
+      <if test="repdw != null" >
+        #{repdw,jdbcType=VARCHAR},
+      </if>
+      <if test="repdate != null" >
+        #{repdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rephfbt != null" >
+        #{rephfbt,jdbcType=VARCHAR},
+      </if>
+      <if test="repdworr != null" >
+        #{repdworr,jdbcType=VARCHAR},
+      </if>
+      <if test="repdates != null" >
+        #{repdates,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Reply" >
+    update x_reply
+    <set >
+      <if test="repname != null" >
+        repname = #{repname,jdbcType=VARCHAR},
+      </if>
+      <if test="repdw != null" >
+        repdw = #{repdw,jdbcType=VARCHAR},
+      </if>
+      <if test="repdate != null" >
+        repdate = #{repdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rephfbt != null" >
+        rephfbt = #{rephfbt,jdbcType=VARCHAR},
+      </if>
+      <if test="repdworr != null" >
+        repdworr = #{repdworr,jdbcType=VARCHAR},
+      </if>
+      <if test="repdates != null" >
+        repdates = #{repdates,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where repid = #{repid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Reply" >
+    update x_reply
+    set repname = #{repname,jdbcType=VARCHAR},
+      repdw = #{repdw,jdbcType=VARCHAR},
+      repdate = #{repdate,jdbcType=TIMESTAMP},
+      rephfbt = #{rephfbt,jdbcType=VARCHAR},
+      repdworr = #{repdworr,jdbcType=VARCHAR},
+      repdates = #{repdates,jdbcType=TIMESTAMP}
+    where repid = #{repid,jdbcType=INTEGER}
+  </update>
+</mapper>

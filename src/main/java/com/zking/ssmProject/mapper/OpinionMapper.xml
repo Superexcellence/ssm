@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.OpinionMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Opinion" >
+    <constructor >
+      <idArg column="opid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="oplgbt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opdl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opxl" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="oplgrordw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="optel" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opbsrsf" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opbssj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="opbsr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opqfld" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="opsfgk" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="opjtnr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fileid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="proid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    opid, oplgbt, opdl, opxl, oplgrordw, optel, opbsrsf, opbssj, opbsr, opqfld, opsfgk, 
+    opjtnr, fileid, proid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_opinion
+    where opid = #{opid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_opinion
+    where opid = #{opid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Opinion" >
+    insert into x_opinion (opid, oplgbt, opdl, 
+      opxl, oplgrordw, optel, 
+      opbsrsf, opbssj, opbsr, 
+      opqfld, opsfgk, opjtnr, 
+      fileid, proid)
+    values (#{opid,jdbcType=INTEGER}, #{oplgbt,jdbcType=VARCHAR}, #{opdl,jdbcType=VARCHAR}, 
+      #{opxl,jdbcType=VARCHAR}, #{oplgrordw,jdbcType=VARCHAR}, #{optel,jdbcType=VARCHAR}, 
+      #{opbsrsf,jdbcType=VARCHAR}, #{opbssj,jdbcType=TIMESTAMP}, #{opbsr,jdbcType=VARCHAR}, 
+      #{opqfld,jdbcType=VARCHAR}, #{opsfgk,jdbcType=INTEGER}, #{opjtnr,jdbcType=VARCHAR}, 
+      #{fileid,jdbcType=VARCHAR}, #{proid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Opinion" >
+    insert into x_opinion
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="opid != null" >
+        opid,
+      </if>
+      <if test="oplgbt != null" >
+        oplgbt,
+      </if>
+      <if test="opdl != null" >
+        opdl,
+      </if>
+      <if test="opxl != null" >
+        opxl,
+      </if>
+      <if test="oplgrordw != null" >
+        oplgrordw,
+      </if>
+      <if test="optel != null" >
+        optel,
+      </if>
+      <if test="opbsrsf != null" >
+        opbsrsf,
+      </if>
+      <if test="opbssj != null" >
+        opbssj,
+      </if>
+      <if test="opbsr != null" >
+        opbsr,
+      </if>
+      <if test="opqfld != null" >
+        opqfld,
+      </if>
+      <if test="opsfgk != null" >
+        opsfgk,
+      </if>
+      <if test="opjtnr != null" >
+        opjtnr,
+      </if>
+      <if test="fileid != null" >
+        fileid,
+      </if>
+      <if test="proid != null" >
+        proid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="opid != null" >
+        #{opid,jdbcType=INTEGER},
+      </if>
+      <if test="oplgbt != null" >
+        #{oplgbt,jdbcType=VARCHAR},
+      </if>
+      <if test="opdl != null" >
+        #{opdl,jdbcType=VARCHAR},
+      </if>
+      <if test="opxl != null" >
+        #{opxl,jdbcType=VARCHAR},
+      </if>
+      <if test="oplgrordw != null" >
+        #{oplgrordw,jdbcType=VARCHAR},
+      </if>
+      <if test="optel != null" >
+        #{optel,jdbcType=VARCHAR},
+      </if>
+      <if test="opbsrsf != null" >
+        #{opbsrsf,jdbcType=VARCHAR},
+      </if>
+      <if test="opbssj != null" >
+        #{opbssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opbsr != null" >
+        #{opbsr,jdbcType=VARCHAR},
+      </if>
+      <if test="opqfld != null" >
+        #{opqfld,jdbcType=VARCHAR},
+      </if>
+      <if test="opsfgk != null" >
+        #{opsfgk,jdbcType=INTEGER},
+      </if>
+      <if test="opjtnr != null" >
+        #{opjtnr,jdbcType=VARCHAR},
+      </if>
+      <if test="fileid != null" >
+        #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="proid != null" >
+        #{proid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Opinion" >
+    update x_opinion
+    <set >
+      <if test="oplgbt != null" >
+        oplgbt = #{oplgbt,jdbcType=VARCHAR},
+      </if>
+      <if test="opdl != null" >
+        opdl = #{opdl,jdbcType=VARCHAR},
+      </if>
+      <if test="opxl != null" >
+        opxl = #{opxl,jdbcType=VARCHAR},
+      </if>
+      <if test="oplgrordw != null" >
+        oplgrordw = #{oplgrordw,jdbcType=VARCHAR},
+      </if>
+      <if test="optel != null" >
+        optel = #{optel,jdbcType=VARCHAR},
+      </if>
+      <if test="opbsrsf != null" >
+        opbsrsf = #{opbsrsf,jdbcType=VARCHAR},
+      </if>
+      <if test="opbssj != null" >
+        opbssj = #{opbssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opbsr != null" >
+        opbsr = #{opbsr,jdbcType=VARCHAR},
+      </if>
+      <if test="opqfld != null" >
+        opqfld = #{opqfld,jdbcType=VARCHAR},
+      </if>
+      <if test="opsfgk != null" >
+        opsfgk = #{opsfgk,jdbcType=INTEGER},
+      </if>
+      <if test="opjtnr != null" >
+        opjtnr = #{opjtnr,jdbcType=VARCHAR},
+      </if>
+      <if test="fileid != null" >
+        fileid = #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="proid != null" >
+        proid = #{proid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where opid = #{opid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Opinion" >
+    update x_opinion
+    set oplgbt = #{oplgbt,jdbcType=VARCHAR},
+      opdl = #{opdl,jdbcType=VARCHAR},
+      opxl = #{opxl,jdbcType=VARCHAR},
+      oplgrordw = #{oplgrordw,jdbcType=VARCHAR},
+      optel = #{optel,jdbcType=VARCHAR},
+      opbsrsf = #{opbsrsf,jdbcType=VARCHAR},
+      opbssj = #{opbssj,jdbcType=TIMESTAMP},
+      opbsr = #{opbsr,jdbcType=VARCHAR},
+      opqfld = #{opqfld,jdbcType=VARCHAR},
+      opsfgk = #{opsfgk,jdbcType=INTEGER},
+      opjtnr = #{opjtnr,jdbcType=VARCHAR},
+      fileid = #{fileid,jdbcType=VARCHAR},
+      proid = #{proid,jdbcType=INTEGER}
+    where opid = #{opid,jdbcType=INTEGER}
+  </update>
+</mapper>

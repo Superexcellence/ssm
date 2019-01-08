@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.SingMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Sing" >
+    <constructor >
+      <idArg column="singid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="singrcsj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="singccsj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="singkqqk" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    singid, userid, singrcsj, singccsj, singkqqk
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_sing
+    where singid = #{singid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from x_sing
+    where singid = #{singid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Sing" >
+    insert into x_sing (singid, userid, singrcsj, 
+      singccsj, singkqqk)
+    values (#{singid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{singrcsj,jdbcType=TIMESTAMP}, 
+      #{singccsj,jdbcType=TIMESTAMP}, #{singkqqk,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Sing" >
+    insert into x_sing
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="singid != null" >
+        singid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="singrcsj != null" >
+        singrcsj,
+      </if>
+      <if test="singccsj != null" >
+        singccsj,
+      </if>
+      <if test="singkqqk != null" >
+        singkqqk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="singid != null" >
+        #{singid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="singrcsj != null" >
+        #{singrcsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="singccsj != null" >
+        #{singccsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="singkqqk != null" >
+        #{singkqqk,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Sing" >
+    update x_sing
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="singrcsj != null" >
+        singrcsj = #{singrcsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="singccsj != null" >
+        singccsj = #{singccsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="singkqqk != null" >
+        singkqqk = #{singkqqk,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where singid = #{singid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Sing" >
+    update x_sing
+    set userid = #{userid,jdbcType=INTEGER},
+      singrcsj = #{singrcsj,jdbcType=TIMESTAMP},
+      singccsj = #{singccsj,jdbcType=TIMESTAMP},
+      singkqqk = #{singkqqk,jdbcType=VARCHAR}
+    where singid = #{singid,jdbcType=INTEGER}
+  </update>
+</mapper>

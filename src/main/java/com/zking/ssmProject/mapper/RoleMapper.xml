@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Role" >
+    <constructor >
+      <arg column="roleid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="rolename" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="roleremark" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Role" >
+    insert into x_role (roleid, rolename, roleremark
+      )
+    values (#{roleid,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, #{roleremark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Role" >
+    insert into x_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleid != null" >
+        roleid,
+      </if>
+      <if test="rolename != null" >
+        rolename,
+      </if>
+      <if test="roleremark != null" >
+        roleremark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleid != null" >
+        #{roleid,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null" >
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="roleremark != null" >
+        #{roleremark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

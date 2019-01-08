@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.MeetingMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Meeting" >
+    <constructor >
+      <arg column="meeid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meezt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meecc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meecbz" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meezksj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="meeaddress" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meecjry" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meelxr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meetel" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="meebmrs" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Meeting" >
+    insert into x_meeting (meeid, meezt, meecc, 
+      meecbz, meezksj, meeaddress, 
+      meecjry, meelxr, meetel, 
+      meebmrs)
+    values (#{meeid,jdbcType=VARCHAR}, #{meezt,jdbcType=VARCHAR}, #{meecc,jdbcType=VARCHAR}, 
+      #{meecbz,jdbcType=VARCHAR}, #{meezksj,jdbcType=TIMESTAMP}, #{meeaddress,jdbcType=VARCHAR}, 
+      #{meecjry,jdbcType=VARCHAR}, #{meelxr,jdbcType=VARCHAR}, #{meetel,jdbcType=VARCHAR}, 
+      #{meebmrs,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Meeting" >
+    insert into x_meeting
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="meeid != null" >
+        meeid,
+      </if>
+      <if test="meezt != null" >
+        meezt,
+      </if>
+      <if test="meecc != null" >
+        meecc,
+      </if>
+      <if test="meecbz != null" >
+        meecbz,
+      </if>
+      <if test="meezksj != null" >
+        meezksj,
+      </if>
+      <if test="meeaddress != null" >
+        meeaddress,
+      </if>
+      <if test="meecjry != null" >
+        meecjry,
+      </if>
+      <if test="meelxr != null" >
+        meelxr,
+      </if>
+      <if test="meetel != null" >
+        meetel,
+      </if>
+      <if test="meebmrs != null" >
+        meebmrs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="meeid != null" >
+        #{meeid,jdbcType=VARCHAR},
+      </if>
+      <if test="meezt != null" >
+        #{meezt,jdbcType=VARCHAR},
+      </if>
+      <if test="meecc != null" >
+        #{meecc,jdbcType=VARCHAR},
+      </if>
+      <if test="meecbz != null" >
+        #{meecbz,jdbcType=VARCHAR},
+      </if>
+      <if test="meezksj != null" >
+        #{meezksj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="meeaddress != null" >
+        #{meeaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="meecjry != null" >
+        #{meecjry,jdbcType=VARCHAR},
+      </if>
+      <if test="meelxr != null" >
+        #{meelxr,jdbcType=VARCHAR},
+      </if>
+      <if test="meetel != null" >
+        #{meetel,jdbcType=VARCHAR},
+      </if>
+      <if test="meebmrs != null" >
+        #{meebmrs,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

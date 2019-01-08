@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.ssmProject.mapper.AdviceMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.Advice" >
+    <constructor >
+      <idArg column="advid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="advbt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="advqk" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="advsj" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="advhf" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="advzr" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    advid, advbt, advqk, advsj, advhf, advzr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from x_advice
+    where advid = #{advid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from x_advice
+    where advid = #{advid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zking.ssmProject.model.Advice" >
+    insert into x_advice (advid, advbt, advqk, 
+      advsj, advhf, advzr
+      )
+    values (#{advid,jdbcType=VARCHAR}, #{advbt,jdbcType=VARCHAR}, #{advqk,jdbcType=VARCHAR}, 
+      #{advsj,jdbcType=TIMESTAMP}, #{advhf,jdbcType=VARCHAR}, #{advzr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Advice" >
+    insert into x_advice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="advid != null" >
+        advid,
+      </if>
+      <if test="advbt != null" >
+        advbt,
+      </if>
+      <if test="advqk != null" >
+        advqk,
+      </if>
+      <if test="advsj != null" >
+        advsj,
+      </if>
+      <if test="advhf != null" >
+        advhf,
+      </if>
+      <if test="advzr != null" >
+        advzr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="advid != null" >
+        #{advid,jdbcType=VARCHAR},
+      </if>
+      <if test="advbt != null" >
+        #{advbt,jdbcType=VARCHAR},
+      </if>
+      <if test="advqk != null" >
+        #{advqk,jdbcType=VARCHAR},
+      </if>
+      <if test="advsj != null" >
+        #{advsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="advhf != null" >
+        #{advhf,jdbcType=VARCHAR},
+      </if>
+      <if test="advzr != null" >
+        #{advzr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.ssmProject.model.Advice" >
+    update x_advice
+    <set >
+      <if test="advbt != null" >
+        advbt = #{advbt,jdbcType=VARCHAR},
+      </if>
+      <if test="advqk != null" >
+        advqk = #{advqk,jdbcType=VARCHAR},
+      </if>
+      <if test="advsj != null" >
+        advsj = #{advsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="advhf != null" >
+        advhf = #{advhf,jdbcType=VARCHAR},
+      </if>
+      <if test="advzr != null" >
+        advzr = #{advzr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where advid = #{advid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.ssmProject.model.Advice" >
+    update x_advice
+    set advbt = #{advbt,jdbcType=VARCHAR},
+      advqk = #{advqk,jdbcType=VARCHAR},
+      advsj = #{advsj,jdbcType=TIMESTAMP},
+      advhf = #{advhf,jdbcType=VARCHAR},
+      advzr = #{advzr,jdbcType=VARCHAR}
+    where advid = #{advid,jdbcType=VARCHAR}
+  </update>
+</mapper>
