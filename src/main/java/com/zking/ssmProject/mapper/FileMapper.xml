@@ -10,6 +10,9 @@
       <arg column="filenames" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
+  <sql id="Base_Column_List" >
+    fileid,filename,filenamen,filenamet,filenames
+  </sql>
   <insert id="insert" parameterType="com.zking.ssmProject.model.File" >
     insert into x_file (fileid, filename, filenamen, 
       filenamet, filenames)

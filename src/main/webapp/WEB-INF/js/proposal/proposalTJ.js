@@ -8,11 +8,11 @@ $(function () {
         var demoListView = $('#demoList')
             , uploadListIns = upload.render({
             elem: '#testList'
-            , url: 'upload'
+            , url: 'File/upload'
             , accept: 'file'
             , multiple: true
             , auto: false
-            , bindAction: '#bindAction'
+            , bindAction: '#testListAction'
             , choose: function (obj) {
                 var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
                 //读取本地文件
@@ -43,7 +43,6 @@ $(function () {
             }
             , done: function (res, index, upload) {
                 if (res.code == 0) { //上传成功
-
                     var tr = demoListView.find('tr#upload-' + index)
                         , tds = tr.children();
                     tds.eq(2).html('<span style="color: #5FB878;">上传成功</span>');

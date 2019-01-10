@@ -1,4 +1,5 @@
 package com.zking.ssmProject.controller;
 
-public class proposal {
+public class ProposalController {
+
 }

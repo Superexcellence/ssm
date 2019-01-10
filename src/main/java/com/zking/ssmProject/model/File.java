@@ -1,5 +1,7 @@
 package com.zking.ssmProject.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class File {
     private Integer fileid;
 
@@ -11,6 +13,15 @@ public class File {
 
     private String filenames;
 
+    private MultipartFile[] file;
+
+    public MultipartFile[] getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile[] file) {
+        this.file = file;
+    }
     public File(Integer fileid, String filename, String filenamen, String filenamet, String filenames) {
         this.fileid = fileid;
         this.filename = filename;
