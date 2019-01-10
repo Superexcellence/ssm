@@ -17,8 +17,8 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/proposal")
+    @RequestMapping("/proposalTJ")
     public String toPage(HttpSession session){
-        return "a";
+        return "/proposal/proposalTJ";
     }
 }

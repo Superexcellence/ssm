@@ -9,41 +9,15 @@
       <arg column="dicvalue" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
-  <insert id="insert" parameterType="com.zking.ssmProject.model.Dict" >
-    insert into x_dict (dicid, dicname, dictype, 
-      dicvalue)
-    values (#{dicid,jdbcType=VARCHAR}, #{dicname,jdbcType=VARCHAR}, #{dictype,jdbcType=VARCHAR}, 
-      #{dicvalue,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.Dict" >
-    insert into x_dict
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="dicid != null" >
-        dicid,
-      </if>
-      <if test="dicname != null" >
-        dicname,
-      </if>
-      <if test="dictype != null" >
-        dictype,
-      </if>
-      <if test="dicvalue != null" >
-        dicvalue,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="dicid != null" >
-        #{dicid,jdbcType=VARCHAR},
-      </if>
-      <if test="dicname != null" >
-        #{dicname,jdbcType=VARCHAR},
-      </if>
-      <if test="dictype != null" >
-        #{dictype,jdbcType=VARCHAR},
-      </if>
-      <if test="dicvalue != null" >
-        #{dicvalue,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <sql id="Base_Column_List" >
+    dicid, dicname, dictype, dicvalue
+  </sql>
+  <select id="Sdict" resultType="com.zking.ssmProject.model.Dict"
+          parameterType="com.zking.ssmProject.model.Dict">
+    select
+    <include refid="Base_Column_List"/>
+    from x_dict
+    where dictype=#{dictype}
+  </select>
+
 </mapper>

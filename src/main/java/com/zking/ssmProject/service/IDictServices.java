@@ -1,12 +1,10 @@
-package com.zking.ssmProject.mapper;
+package com.zking.ssmProject.service;
 
 import com.zking.ssmProject.model.Dict;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface DictMapper {
+public interface IDictServices {
 
     /**
      * 字典表查询
