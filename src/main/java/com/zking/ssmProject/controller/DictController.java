@@ -1,7 +1,7 @@
 package com.zking.ssmProject.controller;
 
 import com.zking.ssmProject.model.Dict;
-import com.zking.ssmProject.service.IDictServices;
+import com.zking.ssmProject.service.IDictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import java.util.List;
 public class DictController {
 
     @Autowired
-    private IDictServices dictServices;
+    private IDictService dictServices;
 
 
     @RequestMapping("/queryDict")

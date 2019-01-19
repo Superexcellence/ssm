@@ -1,7 +1,10 @@
 package com.zking.ssmProject.model;
 
+import lombok.ToString;
+
 import java.util.Date;
 
+@ToString
 public class Proposal {
     private Integer proid;
 
@@ -47,7 +50,101 @@ public class Proposal {
 
     private String propj;
 
-    public Proposal(Integer proid, String protype, String proany, String protar, String promc, String prodp, String prowyzh, String protel, String prodwjzw, String proemail, String protxdz, String protanr, Date prodate, String fileid, String proxgqk, String procbdw, String prolxrxm, String prolxrdw, String prolxrdh, String joinid, Integer protps, String propj) {
+    private String period;
+
+    private String next;
+
+    private String mark;
+
+    private String postcode;
+
+    private String procategory;
+
+    private String prostate;
+
+    private String procase;
+
+    private String prouserid;
+
+    private String xd;
+    private String xd1;
+    private String xd2;
+    private String xd3;
+    private String xd4;
+
+    public String getXd() {
+        return xd;
+    }
+
+    public void setXd(String xd) {
+        this.xd = xd;
+    }
+
+    public String getXd1() {
+        return xd1;
+    }
+
+    public void setXd1(String xd1) {
+        this.xd1 = xd1;
+    }
+
+    public String getXd2() {
+        return xd2;
+    }
+
+    public void setXd2(String xd2) {
+        this.xd2 = xd2;
+    }
+
+    public String getXd3() {
+        return xd3;
+    }
+
+    public void setXd3(String xd3) {
+        this.xd3 = xd3;
+    }
+
+    public String getXd4() {
+        return xd4;
+    }
+
+    public void setXd4(String xd4) {
+        this.xd4 = xd4;
+    }
+
+    public String getProcategory() {
+        return procategory;
+    }
+
+    public void setProcategory(String procategory) {
+        this.procategory = procategory;
+    }
+
+    public String getProstate() {
+        return prostate;
+    }
+
+    public void setProstate(String prostate) {
+        this.prostate = prostate;
+    }
+
+    public String getProcase() {
+        return procase;
+    }
+
+    public void setProcase(String procase) {
+        this.procase = procase;
+    }
+
+    public String getProuserid() {
+        return prouserid;
+    }
+
+    public void setProuserid(String prouserid) {
+        this.prouserid = prouserid;
+    }
+
+    public Proposal(Integer proid, String protype, String proany, String protar, String promc, String prodp, String prowyzh, String protel, String prodwjzw, String proemail, String protxdz, String protanr, Date prodate, String fileid, String proxgqk, String procbdw, String prolxrxm, String prolxrdw, String prolxrdh, String joinid, Integer protps, String propj, String period, String next, String mark, String postcode) {
         this.proid = proid;
         this.protype = protype;
         this.proany = proany;
@@ -70,6 +167,10 @@ public class Proposal {
         this.joinid = joinid;
         this.protps = protps;
         this.propj = propj;
+        this.period = period;
+        this.next = next;
+        this.mark = mark;
+        this.postcode = postcode;
     }
 
     public Proposal() {
@@ -250,5 +351,37 @@ public class Proposal {
 
     public void setPropj(String propj) {
         this.propj = propj;
+    }
+
+    public String getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+
+    public String getNext() {
+        return next;
+    }
+
+    public void setNext(String next) {
+        this.next = next;
+    }
+
+    public String getMark() {
+        return mark;
+    }
+
+    public void setMark(String mark) {
+        this.mark = mark;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
     }
 }

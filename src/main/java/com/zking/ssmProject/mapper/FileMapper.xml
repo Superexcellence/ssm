@@ -3,57 +3,33 @@
 <mapper namespace="com.zking.ssmProject.mapper.FileMapper" >
   <resultMap id="BaseResultMap" type="com.zking.ssmProject.model.File" >
     <constructor >
-      <arg column="fileid" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="filename" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="filenamen" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="filenamet" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="filenames" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fileid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="filesize" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="real_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="content_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="url" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    fileid,filename,filenamen,filenamet,filenames
+    fileid,filesize,real_name,content_type,url
   </sql>
   <insert id="insert" parameterType="com.zking.ssmProject.model.File" >
-    insert into x_file (fileid, filename, filenamen, 
-      filenamet, filenames)
-    values (#{fileid,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{filenamen,jdbcType=VARCHAR}, 
-      #{filenamet,jdbcType=VARCHAR}, #{filenames,jdbcType=VARCHAR})
+    insert into x_file (fileid, filesize, real_name,
+      content_type, url)
+    values (#{fileid,jdbcType=VARCHAR}, #{filesize,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR},
+      #{contentType,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zking.ssmProject.model.File" >
-    insert into x_file
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="fileid != null" >
-        fileid,
-      </if>
-      <if test="filename != null" >
-        filename,
-      </if>
-      <if test="filenamen != null" >
-        filenamen,
-      </if>
-      <if test="filenamet != null" >
-        filenamet,
-      </if>
-      <if test="filenames != null" >
-        filenames,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="fileid != null" >
-        #{fileid,jdbcType=INTEGER},
-      </if>
-      <if test="filename != null" >
-        #{filename,jdbcType=VARCHAR},
-      </if>
-      <if test="filenamen != null" >
-        #{filenamen,jdbcType=VARCHAR},
-      </if>
-      <if test="filenamet != null" >
-        #{filenamet,jdbcType=VARCHAR},
-      </if>
-      <if test="filenames != null" >
-        #{filenames,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+
+  <delete id="delete" parameterType="com.zking.ssmProject.model.File">
+    DELETE
+    FROM x_file
+    WHERE fileid=#{fileid}
+  </delete>
+    <select id="queryFile" resultType="com.zking.ssmProject.model.File"
+            parameterType="com.zking.ssmProject.model.File">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM x_file
+        WHERE fileid=#{fileid}
+    </select>
 </mapper>

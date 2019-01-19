@@ -3,15 +3,15 @@ package com.zking.ssmProject.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class File {
-    private Integer fileid;
+    private String fileid;
 
-    private String filename;
+    private String filesize;
 
-    private String filenamen;
+    private String realName;
 
-    private String filenamet;
+    private String contentType;
 
-    private String filenames;
+    private String url;
 
     private MultipartFile[] file;
 
@@ -22,55 +22,56 @@ public class File {
     public void setFile(MultipartFile[] file) {
         this.file = file;
     }
-    public File(Integer fileid, String filename, String filenamen, String filenamet, String filenames) {
+
+    public File(String fileid, String filesize, String realName, String contentType, String url) {
         this.fileid = fileid;
-        this.filename = filename;
-        this.filenamen = filenamen;
-        this.filenamet = filenamet;
-        this.filenames = filenames;
+        this.filesize = filesize;
+        this.realName = realName;
+        this.contentType = contentType;
+        this.url = url;
     }
 
     public File() {
         super();
     }
 
-    public Integer getFileid() {
+    public String getFileid() {
         return fileid;
     }
 
-    public void setFileid(Integer fileid) {
+    public void setFileid(String fileid) {
         this.fileid = fileid;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getFilesize() {
+        return filesize;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFilesize(String filesize) {
+        this.filesize = filesize;
     }
 
-    public String getFilenamen() {
-        return filenamen;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setFilenamen(String filenamen) {
-        this.filenamen = filenamen;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
-    public String getFilenamet() {
-        return filenamet;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setFilenamet(String filenamet) {
-        this.filenamet = filenamet;
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
-    public String getFilenames() {
-        return filenames;
+    public String getUrl() {
+        return url;
     }
 
-    public void setFilenames(String filenames) {
-        this.filenames = filenames;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

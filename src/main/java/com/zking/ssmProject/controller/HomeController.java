@@ -18,7 +18,37 @@ public class HomeController {
     }
 
     @RequestMapping("/proposalTJ")
-    public String toPage(HttpSession session){
+    public String toproposalTJ(HttpSession session){
         return "/proposal/proposalTJ";
+    }
+
+    @RequestMapping("/proposalCX")
+    public String toproposalCX(HttpSession session){
+        return "/proposal/proposalCX";
+    }
+
+    @RequestMapping("/proposalFY")
+    public String toproposalFY(HttpSession session){
+        return "/proposal/proposalFY";
+    }
+
+    @RequestMapping("/proposalPJ")
+    public String toproposalPJ(HttpSession session){
+        return "/proposal/proposalPJ";
+    }
+
+    @RequestMapping("/proposalStatistics")
+    public String toproposalStatistics(HttpSession session){
+        return "/proposal/proposalStatistics";
+    }
+
+    @RequestMapping("/uIAction_page_user_userEdit")
+    public String toedit(HttpSession session){
+        return "/proposal/edit";
+    }
+
+    @RequestMapping("/uIAction_page_user_userEdit1")
+    public String toevaluate(HttpSession session){
+        return "/proposal/evaluate";
     }
 }

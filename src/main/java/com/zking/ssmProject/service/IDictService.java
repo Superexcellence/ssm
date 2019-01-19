@@ -4,7 +4,7 @@ import com.zking.ssmProject.model.Dict;
 
 import java.util.List;
 
-public interface IDictServices {
+public interface IDictService {
 
     /**
      * 字典表查询

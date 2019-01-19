@@ -473,9 +473,9 @@ height: 300px;
 	height: 350px;
 }
 .book_con01{
-	width: 80%;
+	width: 90%;
 	height: auto;
-	margin-left: 10%;
+	margin-left:0px;
 	margin-top: 2%;
 	margin-bottom: 3%;
 	background-color: #ffffff;
@@ -486,8 +486,6 @@ height: 300px;
 	5px 0 5px #666, /*右边阴影*/
 	0 -5px 5px #666, /*顶部阴影*/
 	0 5px 5px #666; /*底边阴影*/
-
-
 }
 .book_p{
 	width: 94%;
